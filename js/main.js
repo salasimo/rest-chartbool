@@ -5,32 +5,48 @@ $(document).ready(function() {
         method: "GET",
         success: function(data) {
             var datiOrganizzati = {};
+            var datiMensili = {};
             for (var i = 0; i < data.length; i++) {
                 var dato = data[i];
                 var venditore = dato.salesman;
                 var id = dato.id;
-                var calendario = dato.date;
+                var calendarioFornito = dato.date;
                 var quantitativo = dato.amount;
+                var calendario = moment(calendarioFornito, "DD-MM-YYY");
+                var mese = calendario.format("MM");
+
 
                 if (datiOrganizzati[venditore] === undefined) {
                     datiOrganizzati[venditore] = 0;
                 }
                 datiOrganizzati[venditore] += quantitativo;
 
+                if (datiMensili[mese] === undefined) {
+                    datiMensili[mese] = 0;
+                }
+                datiMensili[mese] += quantitativo;
+
+
             }
             var labels = [];
             var values = [];
+
+            var labelsMesi = [];
+            var valuesMesi = [];
 
 
             for (var key in datiOrganizzati) {
                 labels.push(key);
                 values.push(datiOrganizzati[key]);
             }
-
             values.sort(sortNumber);
-            console.log(values);
 
-            var ctx = $('#grafico');
+            for (var key in datiMensili) {
+                labelsMesi.push(key);
+                valuesMesi.push(datiMensili[key]);
+            }
+
+            var ctx = $('#grafico-torta');
             var chart = new Chart(ctx, {
 
                 type: 'pie',
@@ -44,6 +60,21 @@ $(document).ready(function() {
                 }
             });
 
+            var ctx = $('#grafico-mensile');
+            var chart = new Chart(ctx, {
+
+                type: 'line',
+                data: {
+                    labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                    datasets: [{
+                        label: 'Fatturato mensile',
+                        borderColor: '#5603ad',
+                        backgroundColor: '#f7efff',
+                        data: valuesMesi
+                    }]
+                },
+            });
+
         },
         error: function(err) {
             alert("Errore AJAX");
@@ -52,20 +83,11 @@ $(document).ready(function() {
     });
 
 
-
-
-
-
-
-
-
     // ----------- FUNCTIONS -----------------------
 
-    function sortNumber(a, b) {
+    function sortNumber(a, b) { // ordine discendente
         return b - a;
     }
-
-
 
 
 }); // fine document ready
