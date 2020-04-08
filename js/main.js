@@ -106,7 +106,8 @@ $(document).ready(function() {
             data: {
                 datasets: [{
                     data: values,
-                    backgroundColor: ["#5603ad", "#9567c6", "#ccb2e8", "#f7efff"]
+                    backgroundColor: ["#5603ad", "#9567c6", "#ccb2e8", "#f7efff"],
+
                 }],
 
                 labels: labels
@@ -120,16 +121,15 @@ $(document).ready(function() {
             data: {
                 labels: arrayMesi,
                 datasets: [{
-                    label: 'Fatturato mensile',
+                    label: "Fatturato 2017",
                     borderColor: '#5603ad',
                     backgroundColor: '#f7efff90',
+                    lineTension: "0",
                     data: valuesMesi
                 }]
             },
         });
     };
-
-
 
 
 }); // fine document ready
