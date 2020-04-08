@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $.ajax({
         url: "http://157.230.17.132:4032/sales",
         method: "GET",
@@ -12,6 +11,43 @@ $(document).ready(function() {
         }
 
     });
+
+    $("#aggiungi-fatturato").click(function(){
+        var venditore = $(".box-aggiunta-dati .select-venditore").val();
+        var fatturato = parseInt($(".box-aggiunta-dati .input-fatt").val());
+        var periodo = moment($(".box-aggiunta-dati .input-data").val()).format("DD/MM/YYYY");
+
+
+        $.ajax({
+            url: "http://157.230.17.132:4032/sales",
+            method: "POST",
+            data:{
+                salesman: venditore,
+                amount: fatturato,
+                date: periodo
+            },
+            success: function(data) {
+            },
+            error: function(err){
+                alert("Errore aggiornamento dati")
+            }
+        });
+
+        $.ajax({
+            url: "http://157.230.17.132:4032/sales",
+            method: "GET",
+            success: function(data) {
+                calcValues(data);
+
+            },
+            error: function(err) {
+                alert("Errore AJAX");
+            }
+
+        });
+
+    });
+
 
 
     // --------------- FUNCTIONS ---------------------
@@ -28,7 +64,7 @@ $(document).ready(function() {
             var venditore = dato.salesman;
             var id = dato.id;
             var calendarioFornito = dato.date;
-            var quantitativo = dato.amount;
+            var quantitativo = parseInt(dato.amount);
             var calendario = moment(calendarioFornito, "DD-MM-YYY");
             var mese = calendario.format("M");
             var arrayMesi = moment.months("MMMM");
@@ -86,14 +122,12 @@ $(document).ready(function() {
                 datasets: [{
                     label: 'Fatturato mensile',
                     borderColor: '#5603ad',
-                    backgroundColor: '#f7efff',
+                    backgroundColor: '#f7efff90',
                     data: valuesMesi
                 }]
             },
         });
     };
-
-
 
 
 

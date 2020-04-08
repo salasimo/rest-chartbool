@@ -8,5 +8,18 @@
     padding: 40px;
     max-width: 1000px;
     margin: 0 auto;
-    
+    font-family: sans-serif;
+
+}
+
+.box-aggiunta-dati{
+    border: 1px solid;
+    margin: 40px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.input-fatt{
+    width: 50px;
+    text-align: right;
 }
