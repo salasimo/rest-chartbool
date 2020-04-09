@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,600,700,700i,900&display=swap" rel="stylesheet">
+    <!--jQuery 3.4.1-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/it.js" integrity="sha256-D8y560ZGsKY1LoAajKkQCG7y0Vkye361MH4yFv2K5kk=" crossorigin="anonymous"></script>
+
+    <title>ChartBool</title>
+</head>
+
+<body>
+    <div class="container mensile">
+        <canvas id="grafico-mensile"></canvas>
+
+    </div>
+    <hr>
+    <div class="container torta">
+        <canvas id="grafico-torta"></canvas>
+
+        <div class="box-aggiunta-dati">
+            <div class="venditore">
+            <label for="sel-venditore">Seleziona venditore: </label>
+            <select class="select-venditore">
+                <option value="Marco" name="sel-venditore">Marco</option>
+                <option value="Giuseppe" name="sel-venditore">Giuseppe</option>
+                <option value="Riccardo" name="sel-venditore">Riccardo</option>
+                <option value="Roberto" name="sel-venditore">Roberto</option>
+            </select>
+            </div>
+            <div class="fatturato">
+            <label for="fatturato">Fatturato: </label>
+            <input class="input-fatt" type="text" name="fatturato">
+            </div>
+            <div class="data">
+            <label for="data-sel">Data: </label>
+            <input type="date" class="input-data" name="data-sel" value="2017-01-01" min="2017-01-01" max="2017-12-31">
+            </div>
+
+            <input id="aggiungi-fatturato" type="submit" name="aggiungi-fatt" value="Aggiungi fatturato">
+
+        </div>
+    </div>
+
+
+    <script src="js/main.js" charset="utf-8"></script>
+</body>
+
+</html>

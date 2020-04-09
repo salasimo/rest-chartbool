@@ -18,38 +18,23 @@
 </head>
 
 <body>
-    <div class="container mensile">
-        <canvas id="grafico-mensile"></canvas>
-
-    </div>
-    <hr>
-    <div class="container torta">
-        <canvas id="grafico-torta"></canvas>
-
-        <div class="box-aggiunta-dati">
-            <div class="venditore">
-            <label for="sel-venditore">Seleziona venditore: </label>
-            <select class="select-venditore">
-                <option value="Marco" name="sel-venditore">Marco</option>
-                <option value="Giuseppe" name="sel-venditore">Giuseppe</option>
-                <option value="Riccardo" name="sel-venditore">Riccardo</option>
-                <option value="Roberto" name="sel-venditore">Roberto</option>
+    <div class="container">
+        <div class="charts">
+            <canvas id="line-chart"></canvas>
+            <canvas id="pie-chart"></canvas>
+        </div>
+        <div class="invia-dati">
+            <select id="sel-venditore">
+                <option value="Giuseppe">Giuseppe</option>
+                <option value="Marco">Marco</option>
+                <option value="Riccardo">Riccardo</option>
+                <option value="Roberto">Roberto</option>
             </select>
-            </div>
-            <div class="fatturato">
-            <label for="fatturato">Fatturato: </label>
-            <input class="input-fatt" type="text" name="fatturato">
-            </div>
-            <div class="data">
-            <label for="data-sel">Data: </label>
-            <input type="date" class="input-data" name="data-sel" value="2017-01-01" min="2017-01-01" max="2017-12-31">
-            </div>
-
-            <input id="aggiungi-fatturato" type="submit" name="aggiungi-fatt" value="Aggiungi fatturato">
-
+            <input id="input-data" type="date" value="2017-01-01" min="2017-01-01" max="2017-12-31">
+            <input id="input-vendita" type="number" value="">
+            <button id="btn-invia">Invia</button>
         </div>
     </div>
-
 
     <script src="js/main.js" charset="utf-8"></script>
 </body>

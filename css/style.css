@@ -5,21 +5,19 @@
 }
 
 .container{
-    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
     max-width: 1000px;
     margin: 0 auto;
-    font-family: sans-serif;
-
 }
 
-.box-aggiunta-dati{
-    border: 1px solid;
-    margin: 40px 0;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+.charts{
+    width: 100%;
 }
-.input-fatt{
-    width: 50px;
-    text-align: right;
+
+canvas{
+    margin: 20px 0;
 }
