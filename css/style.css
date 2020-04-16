@@ -13,11 +13,41 @@
     max-width: 1000px;
     margin: 0 auto;
 }
-
 .charts{
-    width: 100%;
+    width:90%;
 }
 
 canvas{
-    margin: 20px 0;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid;
 }
+
+.invia-dati{
+    background-color: #ccb2e8;
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.invia-dati input{
+    background: #FFF;
+    border: none;
+    border-radius: 5px;
+    color: #1d1d1d;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    margin: 5px;
+}
+.invia-dati button, .invia-dati select{
+    background-color: #FFF;
+    color: #1d1d1d;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 15px;
